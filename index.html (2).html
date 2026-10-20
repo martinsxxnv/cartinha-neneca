@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5a382b">
+<title>Pra minha Cachinhos Dourados ♡</title>
+<style>
+:root{--ink:#214a87;--paper:#ffffff;--paper2:#f5f8ff;--brown:#214a87;--gold:#f2c94c;--rose:#6b9de0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Segoe Print','Comic Sans MS','Bradley Hand',cursive;background:radial-gradient(ellipse at top,#e8f1ff 0,#b7d2f5 70%);padding:24px 14px 50px;display:flex;justify-content:center;align-items:center}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(100%,760px);text-align:center}
+.kicker{color:#214a87;letter-spacing:.04em;font-size:.95rem;margin:0 0 20px}
+.envelope-scene{perspective:1000px;max-width:480px;margin:0 auto}
+.envelope{position:relative;width:100%;aspect-ratio:1.45;background:#ffffff;border-radius:7px;box-shadow:0 20px 45px #21130f80;overflow:hidden;cursor:pointer;transition:transform .5s}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#ffffff,#e8f1ff);z-index:1;clip-path:polygon(0 0,50% 53%,100% 0)}
+.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(35deg,#d8e8ff,#ffffff);clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);z-index:3}
+.envelope .letter-peek{position:absolute;left:8%;right:8%;top:9%;height:79%;background:repeating-linear-gradient(to bottom,#fff4df 0,#fff4df 25px,#e5cfad 26px,#fff4df 27px);padding:18px 10px;color:#674a39;z-index:2;transition:transform .8s;box-shadow:0 0 8px #65442c30}
+.envelope .letter-peek strong{display:block;margin-top:15px;font-size:1.1rem;font-weight:normal;font-style:italic}
+.flap{position:absolute;inset:0;background:#eaf2ff;clip-path:polygon(0 0,100% 0,50% 57%);z-index:4;transform-origin:top;transition:transform .8s;filter:drop-shadow(0 2px 2px #5a392b25)}
+.seal{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);z-index:5;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#fff3a6,#e6b82e 70%);color:#214a87;font-size:2rem;box-shadow:0 4px 10px #4c2c1d55;border:2px solid #ffe68b;transition:opacity .3s}
+.envelope-label{position:absolute;left:0;right:0;top:20%;z-index:5;font-size:clamp(1.1rem,4vw,1.65rem);font-style:italic;color:#214a87;line-height:1.5}
+.envelope.open .flap{transform:rotateX(180deg);z-index:0}
+.envelope.open .seal{opacity:0}
+.envelope.open .letter-peek{transform:translateY(-45%)}
+.open-hint{color:#214a87;margin:20px 0 0;font-size:.98rem}
+.letter-shell{display:none;margin:24px auto 0;max-width:690px}
+.paper{background-color:var(--paper);background-image:radial-gradient(#8db4ed30 .7px,transparent .7px);background-size:7px 7px;border:1px solid #d3e2f8;border-radius:5px;padding:clamp(22px,5vw,48px);box-shadow:0 14px 40px #24150f70;text-align:left;position:relative;overflow:hidden}
+.paper:before{content:"♡";position:absolute;top:12px;right:20px;color:#f2c94c;font-size:1.6rem;opacity:.75}
+.paper h1{font-weight:normal;font-size:clamp(1.5rem,5vw,2rem);text-align:center;margin:0 0 24px;font-style:italic}
+.paper p{font-size:clamp(1.03rem,2.5vw,1.14rem);line-height:1.9;margin:0 0 17px;white-space:pre-line}
+.page-count{text-align:center;font-size:.85rem;color:#5276a8;margin-top:18px}
+.controls{display:flex;justify-content:space-between;gap:12px;margin-top:16px}
+.controls button,.restart{border:1px solid #8db4ed;border-radius:30px;background:#ffffff;color:#214a87;padding:12px 20px;box-shadow:0 4px 10px #20130f20}
+.controls button:disabled{opacity:.35;cursor:default}
+.final-note{display:none;text-align:center;margin-top:20px;color:#214a87;font-size:1.1rem;line-height:1.8}
+.final-note .big{font-size:2.4rem;display:block;margin:8px}
+.restart{margin-top:18px}
+footer{color:#214a87;font-size:.85rem;margin-top:24px;opacity:.9}
+@media(max-width:420px){body{padding:20px 10px 36px}.envelope{aspect-ratio:1.25}.seal{width:52px;height:52px}.paper{padding:25px 20px}.paper p{line-height:1.78}.controls button{padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="kicker">uma cartinha feita com amor ♡</p>
+  <section id="envelopeScene" class="envelope-scene" aria-label="Envelope de amor">
+    <div id="envelope" class="envelope" role="button" tabindex="0" aria-label="Abrir a carta">
+      <div class="letter-peek"><strong>Uma carta pra você…</strong><span>com todo o meu amor ♡</span></div>
+      <div class="envelope-label">minha<br>cachinhos dourados<br>♡</div>
+      <div class="flap"></div><div class="seal">♡</div>
+    </div>
+    <p class="open-hint">toque no envelope para abrir, meu amor ♡</p>
+  </section>
+
+  <section id="letterShell" class="letter-shell">
+    <article class="paper">
+      <h1 id="pageTitle">Pra minha Cachinhos Dourados ♡</h1>
+      <div id="pageText"></div>
+      <div class="page-count" id="pageCount"></div>
+    </article>
+    <div class="controls">
+      <button id="prev" type="button">← anterior</button>
+      <button id="next" type="button">próxima →</button>
+    </div>
+  </section>
+  <section id="finalNote" class="final-note">
+    <span class="big">♡ ∞ ♡</span>
+    obrigada por existir, minha cachinhos dourados.<br>
+    eu te amo. — da tua camilly ♡
+    <br><button id="restart" class="restart" type="button">Ler de novo</button>
+  </section>
+  <footer>feito com carinho, especialmente pra você, nathalia ♡</footer>
+</main>
+<script>
+const pages = [
+{title:"pra minha cachinhos dourados ♡", text:`meu amor, eu nem sei direito por onde começar, porque, quando se trata de você, parece que nenhuma palavra é suficiente. é engraçado, né? eu passo tanto tempo tentando encontrar formas de demonstrar o que sinto por você, tentando transformar meus sentimentos em coisas bonitas, em surpresas, em detalhes que façam você sorrir. mas hoje eu quero fazer diferente. hoje eu quero simplesmente sentar, escrever e deixar meu coração falar por mim, mesmo que as palavras saiam bagunçadas, mesmo que eu chore no meio dessa carta, mesmo que, no final, eu ainda sinta que faltou dizer tanta coisa.
+
+porque você é tanta coisa pra mim, nathalia. você é muito mais do que eu consigo explicar.
+
+às vezes, eu paro pra pensar em como alguém que começou fazendo parte dos meus dias conseguiu se tornar uma parte tão importante de quem eu sou. como uma pessoa consegue mudar tanta coisa dentro da gente sem nem precisar estar fisicamente perto? como alguém consegue fazer a gente sentir saudade de um abraço que ainda nem aconteceu, sentir falta de um cheiro que ainda não conhece e sonhar tantas vezes com um momento que ainda está esperando pra viver?
+
+e eu penso em você.
+
+penso em como eu quero te encontrar. em como eu quero olhar nos teus olhos e finalmente ter você pertinho de mim. quero poder te abraçar sem precisar imaginar como seria, te apertar contra mim e sentir que, por alguns instantes, não existe distância nenhuma entre nós. quero poder olhar pra você e pensar que é você mesmo, que a menina por quem eu sinto tudo isso está ali, na minha frente, e que eu finalmente posso demonstrar com um abraço tudo aquilo que venho tentando colocar em palavras.`},
+{title:"você me faz sentir em casa ♡", text:`e sabe o que mais me emociona? é que, mesmo antes desse dia chegar, você já me faz sentir tantas coisas.
+
+você me faz sentir em casa.
+
+e eu não tô falando de um lugar, de quatro paredes ou de um endereço. eu tô falando daquela sensação de poder respirar mais tranquila, de sentir que existe alguém com quem eu posso dividir meus sentimentos, minhas inseguranças, meus sonhos e até aqueles pensamentos que eu nem sei explicar direito. você me faz sentir que o amor pode ser um lugar seguro. um lugar onde eu não preciso ter todas as respostas, onde eu posso estar aprendendo, crescendo, errando e tentando de novo.
+
+eu nunca imaginei que fosse encontrar alguém que me fizesse sentir tão amada de um jeito que eu nem sabia que precisava. e eu queria que você pudesse se enxergar pelos meus olhos só por alguns minutos, meu amor. queria que você pudesse sentir, nem que fosse por um instante, o tamanho da importância que tem na minha vida.
+
+queria que você entendesse que não precisa fazer absolutamente nada extraordinário pra ser especial pra mim. você não precisa se esforçar pra merecer o meu carinho. não precisa competir com ninguém, muito menos comigo. você não precisa encontrar uma maneira de me dar mais do que eu te dou.
+
+porque eu não te amo por aquilo que você consegue produzir pra mim. eu amo você.`},
+{title:"o teu jeito de amar também é presente ♡", text:`amo a pessoa que você é, o jeito que você me trata, a maneira como você demonstra o que sente e todas aquelas pequenas coisas que fazem você ser a minha nathalia. amo o carinho que existe nas tuas palavras. amo saber que, do teu jeito, você também tenta me mostrar o quanto eu sou importante. e, meu amor, eu espero que você nunca olhe pras coisas que eu faço e pense que precisa fazer algo do mesmo tamanho pra me deixar feliz.
+
+você não faz ideia do quanto as tuas palavras significam pra mim.
+
+talvez você veja um texto e pense que é só um texto. mas eu vejo você ali. vejo o tempo que você dedicou a colocar teus sentimentos em palavras, vejo o carinho por trás daquilo que escreveu e vejo um pedacinho de você chegando até mim, mesmo com tantos quilômetros entre nós.
+
+eu não preciso que você construa um site pra mim. não preciso de uma surpresa elaborada, de um presente caro ou de alguma coisa que tenha levado horas pra ficar pronta. eu quero você. quero teu carinho, tuas palavras, tua sinceridade, tua presença na minha vida. quero continuar conhecendo você, inclusive nas partes que você ainda tá aprendendo a mostrar.
+
+e, se algum dia você se sentir insuficiente porque eu fiz alguma coisa bonita pra você, por favor, lembra desta carta.
+
+lembra que eu não tô contando quantas coisas eu fiz e quantas você fez. não existe uma competição acontecendo aqui. não existe uma pontuação que você precisa alcançar pra merecer o meu amor.`},
+{title:"eu quero você, não uma competição ♡", text:`eu não quero que os meus presentes virem uma preocupação no teu coração. eu quero que eles sejam uma forma de te fazer feliz, não uma obrigação que você sente que precisa devolver.
+
+eu faço essas coisas porque te amo. porque pensar em você me dá vontade de criar, escrever, imaginar e encontrar maneiras de fazer você sorrir. mas, se um dia eu não puder te dar nada além de algumas palavras escritas num pedaço de papel, ainda assim vou querer que você saiba o quanto é amada. e, se um dia você não puder me oferecer nada além de um texto teu, eu ainda vou ter motivos de sobra pra guardar cada palavra com carinho.
+
+porque o que eu quero receber de você não é uma cópia do meu jeito de amar. é o seu amor, do seu jeito.
+
+e eu espero que você nunca se esqueça disso, minha menina.
+
+eu não quero ser apenas alguém que te faz declarações bonitas. eu quero ser alguém que te escuta quando você não consegue explicar o que está sentindo. quero ser alguém com quem você possa conversar sem ter medo de ser julgada. quero aprender a te acolher nos dias em que você não estiver bem, respeitar teu tempo, compreender teus sentimentos e reconhecer quando eu precisar melhorar.
+
+eu não prometo ser perfeita. não quero te fazer promessas impossíveis só porque elas ficam bonitas escritas numa carta. eu sou uma pessoa que ainda tá crescendo, aprendendo e descobrindo tantas coisas. vou ter dias difíceis, vou cometer erros e provavelmente ainda vou ter muito a aprender sobre como amar da maneira mais saudável possível. mas eu quero ter a humildade de reconhecer meus erros, a coragem de conversar com você e a vontade de continuar construindo algo bonito ao teu lado.`},
+{title:"eu sonho com o nosso futuro ♡", text:`eu quero que o nosso amor seja mais do que palavras bonitas. quero que ele apareça nas atitudes, no respeito, na confiança, na paciência e na forma como a gente escolhe cuidar uma da outra.
+
+porque, quando eu penso no nosso futuro, não penso apenas em um dia especial, em um pedido bonito ou em uma fotografia que a gente vai tirar quando finalmente estiver juntinha. eu penso em todas as possibilidades que ainda existem pra nós. penso nas conversas que ainda vamos ter, nos lugares que ainda queremos conhecer, nas risadas que ainda vamos compartilhar e nos dias comuns que um dia poderão ser vividos lado a lado.
+
+eu penso em poder estar perto de você não só nos momentos extraordinários, mas também nos mais simples. penso em descobrir como é dividir o mesmo espaço contigo, em ouvir tua voz sem depender de uma tela e em transformar toda essa saudade acumulada em momentos que a gente finalmente poderá viver juntas.
+
+eu quero construir uma história com você, meu amor. uma história que não precise ser perfeita pra ser nossa. uma história em que as duas possam crescer, mudar, descobrir novos sonhos e continuar conversando sobre o que desejam construir.
+
+eu quero estar contigo nos dias em que tudo der certo e nos dias em que você precisar parar um pouco. quero comemorar tuas conquistas, ouvir sobre as coisas que te deixam feliz e te lembrar de que você também merece cuidado. quero conhecer cada vez mais a pessoa que você é, sem tentar te encaixar em uma ideia perfeita que eu inventei na minha cabeça. quero conhecer você de verdade, meu amor, porque é você, com tudo o que te torna única, que eu quero continuar amando.`},
+{title:"você já é a minha cachinhos dourados ♡", text:`e, se tem uma coisa que eu gostaria que você levasse dessa carta, é que você não precisa se tornar outra pessoa pra ser o amor da minha vida.
+
+você já é a minha cachinhos dourados.
+
+a minha menina, a pessoa que faz meu coração ficar cheio de sentimentos que eu nem sempre sei organizar. a pessoa que me faz imaginar tantas possibilidades pro futuro. a pessoa que me ensinou que, às vezes, a gente pode encontrar um lugar de paz dentro de alguém, mesmo quando esse alguém ainda está longe dos nossos braços.
+
+eu queria poder terminar essa carta dizendo que consegui explicar tudo. mas seria mentira. ainda existe tanta coisa que eu sinto por você e que não cabe aqui. existem sentimentos que eu provavelmente vou passar anos tentando explicar, e talvez alguns deles só façam sentido quando eu puder olhar nos teus olhos e te abraçar bem forte.
+
+até lá, quero que essas palavras te façam companhia.
+
+quero que você possa voltar a elas quando estiver com saudade, quando duvidar do teu valor ou quando achar que não consegue me amar tão bem quanto eu te amo. quero que você leia e se lembre de que o teu amor não precisa ter a mesma forma que o meu pra ser precioso. quero que você se lembre de que eu também tenho muito a aprender contigo e que, enquanto eu passo horas tentando transformar sentimentos em criações, você também consegue tocar meu coração de maneiras que talvez nem perceba.`},
+{title:"da tua camilly, com todo o amor ♡", text:`eu te amo, nathalia.
+
+amo você com a vontade de estar perto, com a saudade de tudo aquilo que ainda vamos viver e com a esperança de construir um futuro que seja bom pras duas. amo você com a consciência de que o amor precisa ser cuidado, não apenas declarado. amo você com vontade de aprender, de amadurecer e de descobrir, ao teu lado, como podemos fazer esse sentimento crescer de uma maneira bonita e saudável.
+
+e eu quero continuar te escolhendo nos pequenos gestos, nas conversas sinceras, nos planos que fizermos juntas e na maneira como cuidarmos uma da outra. quero continuar descobrindo novos motivos pra sorrir quando penso em você. quero continuar te conhecendo, porque eu sei que ainda existem tantas partes tuas que vou descobrir com o tempo.
+
+minha neneca, obrigada por fazer parte da minha vida. obrigada pelo teu carinho, pelas tuas palavras e por tudo aquilo que você me permite conhecer de você. obrigada por me fazer sentir amada de uma maneira que eu nunca imaginei. e obrigada por me dar a oportunidade de construir contigo uma história que, mesmo ainda tendo tanto pela frente, já significa tanto pra mim.
+
+eu espero que um dia a gente possa ler esta carta juntinhas. quero poder olhar pra você, lembrar da distância que existia quando escrevi cada palavra e sentir a felicidade de finalmente estar vivendo um pedacinho daqueles sonhos que hoje parecem tão distantes.
+
+e, quando esse dia chegar, quero te abraçar e dizer que ainda existem tantas coisas que quero viver contigo.
+
+não porque você me deve alguma coisa. não porque eu preciso que a nossa história siga um roteiro perfeito. mas porque, entre tantas possibilidades que a vida pode oferecer, eu tenho vontade de descobrir o que podemos construir quando caminhamos juntas, com amor, respeito, paciência e verdade.
+
+você não precisa me dar o mundo, meu amor.
+
+eu só quero que a gente continue construindo o nosso cantinho nele.
+
+um lugar onde você possa ser você, onde eu possa ser eu e onde o nosso amor não precise provar nada pra ninguém. um lugar que não seja feito apenas de sonhos, mas também de atitudes, conversas, cuidado e escolhas diárias.
+
+e, se algum dia você se perguntar se é suficiente pra mim, volta aqui.
+
+lê de novo.
+
+lembra que não foram os presentes que me fizeram amar você. foram você, o teu jeito, o teu carinho e tudo aquilo que nasceu em mim enquanto eu te conhecia.
+
+eu não sei exatamente o que o futuro reserva pra nós. mas sei que quero cuidar do que estamos construindo hoje, sem deixar de sonhar com tudo aquilo que ainda podemos viver amanhã.
+
+eu te amo, minha cachinhos dourados. e espero que, em cada palavra desta carta, você consiga sentir um pouquinho do amor que eu ainda vou passar a vida tentando te explicar.
+
+com todo o amor que existe em mim,
+
+da tua camilly, que sonha com o dia em que vai poder te abraçar e dizer tudo isso olhando nos teus olhos. ♡` }
+];
+let index=0;
+const envelope=document.getElementById('envelope');
+const scene=document.getElementById('envelopeScene');
+const shell=document.getElementById('letterShell');
+const finalNote=document.getElementById('finalNote');
+const pageText=document.getElementById('pageText');
+const pageTitle=document.getElementById('pageTitle');
+const pageCount=document.getElementById('pageCount');
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+function openLetter(){
+  if(envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  setTimeout(()=>{scene.style.display='none';shell.style.display='block';render();shell.scrollIntoView({behavior:'smooth',block:'start'});},850);
+}
+envelope.addEventListener('click',openLetter);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();}});
+function render(){
+  pageTitle.textContent=pages[index].title;
+  pageText.innerHTML='';
+  pages[index].text.split(/\n\n+/).forEach(par=>{
+    const p=document.createElement('p');p.textContent=par;pageText.appendChild(p);
+  });
+  pageCount.textContent=`${index+1} de ${pages.length}`;
+  prev.disabled=index===0;
+  next.textContent=index===pages.length-1?'terminar ♡':'próxima →';
+}
+prev.addEventListener('click',()=>{if(index>0){index--;render();shell.scrollIntoView({behavior:'smooth',block:'start'});}});
+next.addEventListener('click',()=>{
+ if(index<pages.length-1){index++;render();shell.scrollIntoView({behavior:'smooth',block:'start'});}
+ else{shell.style.display='none';finalNote.style.display='block';finalNote.scrollIntoView({behavior:'smooth',block:'center'});}
+});
+document.getElementById('restart').addEventListener('click',()=>{
+ index=0;finalNote.style.display='none';scene.style.display='block';shell.style.display='none';envelope.classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
